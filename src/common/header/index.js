@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { CSSTransition} from 'react-transition-group';
+import {CSSTransition} from 'react-transition-group';
 import {HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoList, SearchInfoItem, SettingIcon, PencilIcon, SearchIcon, RefreshIcon} from './style';
 import {actionCreators} from '../header/store';
 

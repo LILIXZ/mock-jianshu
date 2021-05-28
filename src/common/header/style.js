@@ -97,6 +97,7 @@ export const SearchInfo = styled.div`
     display: none;
     &.focused{
         display: block;
+        background: #fff;
     }
 `;
 

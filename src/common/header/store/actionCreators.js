@@ -2,7 +2,7 @@ import {CHANGE_FOCUS_VALUE, CHANGE_BLUR_VALUE, CHANGE_LIST_VALUE, MOUSE_ENTER, M
 import {fromJS} from 'immutable';
 import axios from 'axios';
 
-const changeList=(data)=>({
+const changeList = (data) => ({
     type: CHANGE_LIST_VALUE,
     // to make list become immutable list
     data: fromJS(data),
@@ -20,7 +20,7 @@ export const searchBlur = () => ({
 });
 
 // return a function
-export const getList = () =>{
+export const getList = () => {
     return (dispatch) =>{
         axios.get('/api/headerList.json').then((res)=>{
             dispatch(changeList(res.data.data));
@@ -30,17 +30,17 @@ export const getList = () =>{
     }
 };
 
-export const mouseEnter = () =>({
+export const mouseEnter = () => ({
     type: MOUSE_ENTER,
     value: true
 });
 
-export const mouseLeave = () =>({
+export const mouseLeave = () => ({
     type: MOUSE_LEAVE,
     value: false
 });
 
-export const switchPage = (page) =>({
+export const switchPage = (page) => ({
     type: SWITCH_PAGE,
     page
 });

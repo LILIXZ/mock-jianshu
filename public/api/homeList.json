@@ -1,0 +1,63 @@
+{
+    "success": true,
+    "topicList":[{
+        "id": 1,
+        "title": "Education",
+        "imgUrl": "./images/topics/education.jpg"
+    },{
+        "id": 2,
+        "title": "Blockchain",
+        "imgUrl": "./images/topics/blockchain.jpg"
+    },{
+        "id": 3,
+        "title": "Art",
+        "imgUrl": "./images/topics/art.jpg"
+    },{
+        "id": 4,
+        "title": "Music",
+        "imgUrl": "./images/topics/music.jpg"
+    },{
+        "id": 5,
+        "title": "Pet",
+        "imgUrl": "./images/topics/pet.jpg"
+    }],
+    "articleList": [{
+        "id": 1,
+        "title": "George Floyd sister says Biden broke promise on bill",
+        "desc": "The murdered Minneapolis man's family express hope and frustration over stalled police reform legislation.",
+        "imgUrl": "./images/articles/1.JPG"
+    },{
+        "id": 2,
+        "title": "Mexico's ancient site threatened by construction",
+        "desc": "Bulldozers have razed areas near the pre-Hispanic ruins at Teotihuacán, a World Heritage Site.",
+        "imgUrl": "./images/articles/2.JPG"
+    },{
+        "id": 3,
+        "title": "Grand jury to consider Donald Trump charges",
+        "desc": "The New York jury will decide whether to indict the ex-president on criminal charges, local media say.",
+        "imgUrl": "./images/articles/3.JPG"
+    },{
+        "id": 4,
+        "title": "France puzzled by mystery anti-Pfizer campaign bid",
+        "desc": "French social media influencers say they have been offered money to discredit the anti-Covid vaccine.",
+        "imgUrl": "./images/articles/4.JPG"
+    },{
+        "id": 5,
+        "title": "Marilyn Manson warrant issued on assault charges",
+        "desc": "The US singer is accused of two counts of assault at a concert in the state of New Hampshire in 2019.",
+        "imgUrl": "./images/articles/5.JPG"
+    }],
+    "recommendList": [{
+        "id": 1,
+        "imgUrl": "./images/recommends/1.png"
+    },{
+        "id": 2,
+        "imgUrl": "./images/recommends/2.png"
+    },{
+        "id": 3,
+        "imgUrl": "./images/recommends/3.png"
+    },{
+        "id": 4,
+        "imgUrl": "./images/recommends/4.png"
+    }]
+}
