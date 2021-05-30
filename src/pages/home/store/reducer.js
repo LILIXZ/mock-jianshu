@@ -1,10 +1,11 @@
-import { CHANGE_TOPICS, CHANGE_RECOMMENDS, CHANGE_ARTICLES } from './actionTypes';
+import { CHANGE_TOPICS, CHANGE_RECOMMENDS, CHANGE_ARTICLES, LOAD_MORE_ARTICLES, UPDATE_SHOW_JUMP_TOP } from './actionTypes';
 import {fromJS} from 'immutable';
 
 const defaultState = fromJS({
     topicList:[],
     articleList: [],
-    recommendList: []
+    recommendList: [],
+    showJumpUp: false
 });
 
 export default (state = defaultState, action) => {
@@ -15,6 +16,10 @@ export default (state = defaultState, action) => {
             return state.set('recommendList', action.data);
         case CHANGE_ARTICLES:
             return state.set('articleList', action.data);
+        case LOAD_MORE_ARTICLES:
+            return state.set('articleList', state.get('articleList').concat(action.data));
+        case UPDATE_SHOW_JUMP_TOP:
+            return state.set('showJumpUp', action.showFlag);
         default:
             return state;
     }

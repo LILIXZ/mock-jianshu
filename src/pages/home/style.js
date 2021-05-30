@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ArrowFromBottom } from '@styled-icons/boxicons-regular';
 
 export const HomeWrapper = styled.div`
     overflow: hidden;
@@ -82,6 +83,18 @@ export const ArticleInfo = styled.div`
     }
 `
 
+export const Readmore = styled.div`
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin: 30px 0;
+    background: #a5a5a5;
+    text-align: center;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+`
+
 // Recommends
 
 export const RecommendWrapper = styled.div`
@@ -95,4 +108,20 @@ export const RecommendItem = styled.div`
     margin-bottom: 6px;
     background: url(${(props) => props.imgUrl});
     background-size: contain;
+`
+
+// Jump To Top
+
+export const JumpTop = styled(ArrowFromBottom)`
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #ccc;
+    cursor: pointer;
 `

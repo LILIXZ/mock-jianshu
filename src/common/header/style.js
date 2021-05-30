@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import logoPic from '../../statics/logo-jianshu.png';
 import { Settings } from '@styled-icons/feather';
-import {Pencil, Search} from '@styled-icons/boxicons-regular';
-import {Refresh} from '@styled-icons/heroicons-outline';
+import { Pencil, Search } from '@styled-icons/boxicons-regular';
+import { Refresh } from '@styled-icons/heroicons-outline';
 
 export const HeaderWrapper = styled.div`
     position: relative;
@@ -10,9 +10,7 @@ export const HeaderWrapper = styled.div`
     border-bottom: 1px solid #f0f0f0;
 `;
 
-export const Logo = styled.a.attrs({
-    href: '/'
-})`
+export const Logo = styled.div`
     height: 58px;
     position: absolute;
     top:0;
@@ -95,6 +93,7 @@ export const SearchInfo = styled.div`
     padding: 0 20px;
     box-shadow: 0 0 8px rgba(0, 0, 0, .2);
     display: none;
+    z-index: 1;
     &.focused{
         display: block;
         background: #fff;
@@ -104,6 +103,7 @@ export const SearchInfo = styled.div`
 export const SearchInfoSwitch = styled.span`
     float: right;
     font-size: 13px;
+    cursor: pointer;
 `;
 
 export const SearchInfoTitle = styled.div`

@@ -1,23 +1,32 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {ArticleItem, ArticleInfo} from '../style';
+import { Link } from 'react-router-dom';
+import {ArticleItem, ArticleInfo, Readmore} from '../style';
+import {actionCreators} from '../../home/store';
 
 class List extends Component{
     render(){
-        const {list} = this.props;
+        const {list, handleReadMoreOnClick} = this.props;
         return(
-            list.map((item) => {
-                    return (
-                        <ArticleItem key={item.get('id')}>
-                            <ArticleInfo>
-                                <h3 className="title">{item.get('title')}</h3>
-                                <p className="desc">{item.get('desc')}</p>
-                            </ArticleInfo>
-                            <img className="article-pic" src={item.get('imgUrl')} alt={item.get('title')}/>
-                        </ArticleItem>
-                    )
+            <div>
+                {
+                    list.map((item) => {
+                        return (
+                            <Link key={item.get('id')} to={'./detail/' + item.get('id')}>
+                                <ArticleItem>
+                                    <ArticleInfo>
+                                        <h3 className="title">{item.get('title')}</h3>
+                                        <p className="desc">{item.get('desc')}</p>
+                                    </ArticleInfo>
+                                    <img className="article-pic" src={item.get('imgUrl')} alt={item.get('title')}/>
+                                </ArticleItem>
+                            </Link>
+                        )
+                    })
                 }
-            )
+                
+                <Readmore onClick = { handleReadMoreOnClick }>Read more</Readmore>
+            </div>
         )
     }
 }
@@ -26,4 +35,13 @@ const mapStateToProps = (state) => {
         list: state.getIn(['home', 'articleList'])
     }
 }
-export default connect(mapStateToProps, null)(List);
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+        handleReadMoreOnClick(){
+            dispatch(actionCreators.getReadMoreData());
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);

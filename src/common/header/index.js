@@ -1,19 +1,27 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {CSSTransition} from 'react-transition-group';
-import {HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoList, SearchInfoItem, SettingIcon, PencilIcon, SearchIcon, RefreshIcon} from './style';
-import {actionCreators} from '../header/store';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
+import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoList, SearchInfoItem, SettingIcon, PencilIcon, SearchIcon, RefreshIcon } from './style';
+import { actionCreators } from '../header/store';
+import { actionCreators as loginActionCreators } from '../../pages/login/store';
 
 class Header extends Component{
     render(){
-        const {focused, list, page, totalPage, mouseIn, handleInputFocus, handleInputBlur, handleMouseEnter, handleMouseLeave, handleSwitchPage} = this.props;
+        const {focused, list, page, totalPage, mouseIn, login, handleInputFocus, handleInputBlur, handleMouseEnter, handleMouseLeave, handleSwitchPage, handleLogout } = this.props;
         return(
             <HeaderWrapper>
-                <Logo />
+                <Link to='/'>
+                    <Logo />
+                </Link>
                 <Nav>
                     <NavItem className='left active'>Home</NavItem>
                     <NavItem className='left'>Download App</NavItem>
-                    <NavItem className='right'>Login</NavItem>
+                    {
+                        login ? 
+                        <NavItem className='right' onClick={handleLogout}>Logout</NavItem> : 
+                        <Link to='/login'><NavItem className='right'>Login</NavItem></Link>
+                    }
                     <NavItem className='right'><SettingIcon /></NavItem>
                     <SearchWrapper>
                         <CSSTransition
@@ -64,7 +72,8 @@ const mapStateToProps = (state) => {
         list: state.getIn(['header', 'list']),
         page: state.getIn(['header', 'page']),
         totalPage: state.getIn(['header', 'totalPage']),
-        mouseIn: state.getIn(['header', 'mouseIn'])
+        mouseIn: state.getIn(['header', 'mouseIn']),
+        login: state.getIn(['login', 'login'])
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -94,6 +103,9 @@ const mapDispatchToProps = (dispatch) => {
             }else{
                 dispatch(actionCreators.switchPage(1));
             }
+        },
+        handleLogout(){
+            dispatch(loginActionCreators.changeLoginStatus(false));
         }
     }
 
